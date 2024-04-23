@@ -8,19 +8,43 @@ jobs:
         requires: [~pr]
         steps:
             - check-pr: |
-                echo hi
+                if [[ -n "$SD_PULL_REQUEST" ]]; then
+                  # the PR job name is in this format: PR-123:job_name. We need the job name without the "-ID" part
+                  export KEY="$(sed 's/^PR-[0-9]*/PR/' <<< $SD_JOB_NAME)"
+                  export STATUS=SUCCESS
+                  export MESSAGE="Image is $DOCKER_SIZE_DELTA_FMT below max"
+                  meta set meta.status.${KEY} "{\"status\":\"$STATUS\",\"message\":\"$MESSAGE\"}"
+                fi
     main2:
         requires: [~pr]
         steps:
             - check-pr: |
-                echo hi
+                if [[ -n "$SD_PULL_REQUEST" ]]; then
+                  # the PR job name is in this format: PR-123:job_name. We need the job name without the "-ID" part
+                  export KEY="$(sed 's/^PR-[0-9]*/PR/' <<< $SD_JOB_NAME)"
+                  export STATUS=SUCCESS
+                  export MESSAGE="Image is $DOCKER_SIZE_DELTA_FMT below max"
+                  meta set meta.status.${KEY} "{\"status\":\"$STATUS\",\"message\":\"$MESSAGE\"}"
+                fi
     main3:
         requires: [~pr]
         steps:
             - check-pr: |
-                echo hi
+                if [[ -n "$SD_PULL_REQUEST" ]]; then
+                  # the PR job name is in this format: PR-123:job_name. We need the job name without the "-ID" part
+                  export KEY="$(sed 's/^PR-[0-9]*/PR/' <<< $SD_JOB_NAME)"
+                  export STATUS=SUCCESS
+                  export MESSAGE="Image is $DOCKER_SIZE_DELTA_FMT below max"
+                  meta set meta.status.${KEY} "{\"status\":\"$STATUS\",\"message\":\"$MESSAGE\"}"
+                fi
     main4:
         requires: [~pr]
         steps:
             - check-pr: |
-                echo hi
+                if [[ -n "$SD_PULL_REQUEST" ]]; then
+                  # the PR job name is in this format: PR-123:job_name. We need the job name without the "-ID" part
+                  export KEY="$(sed 's/^PR-[0-9]*/PR/' <<< $SD_JOB_NAME)"
+                  export STATUS=SUCCESS
+                  export MESSAGE="Image is $DOCKER_SIZE_DELTA_FMT below max"
+                  meta set meta.status.${KEY} "{\"status\":\"$STATUS\",\"message\":\"$MESSAGE\"}"
+                fi
