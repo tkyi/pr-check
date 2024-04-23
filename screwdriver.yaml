@@ -1,0 +1,26 @@
+shared:
+  image: node:18
+  environment:
+    USER_SHELL_BIN: "/bin/bash"
+
+jobs:
+    main1:
+        requires: [~pr]
+        steps:
+            - check-pr: |
+                echo hi
+    main2:
+        requires: [~pr]
+        steps:
+            - check-pr: |
+                echo hi
+    main3:
+        requires: [~pr]
+        steps:
+            - check-pr: |
+                echo hi
+    main4:
+        requires: [~pr]
+        steps:
+            - check-pr: |
+                echo hi
